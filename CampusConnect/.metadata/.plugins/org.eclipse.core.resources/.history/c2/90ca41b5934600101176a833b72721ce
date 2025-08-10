@@ -1,0 +1,30 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="com.campusconnect.model.User" %>
+<%
+	String rollNumber = (String) session.getAttribute("rollNumber");
+%>
+
+<div class="nav-bar">
+    <div id="logo-section">
+        <a href="index.jsp">CampusConnect</a>
+    </div>
+    <div id="menu-icon">
+        <div class="bar" id="bar1"></div>
+        <div class="bar" id="bar2"></div>
+        <div class="bar" id="bar3"></div>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="index.jsp">Home</a></li>
+        <% if (rollNumber != null) { %> <!-- if the user is logged in -->
+        	<li><a href="profile">Profile</a></li>
+            <li><a href="logout.jsp">Logout</a></li>
+            <li><a href="#">Podcasts</a></li>
+            <li><a href="${pageContext.request.contextPath}/interviewExp">Interview Experinces</a></li>
+            <li><a href="${pageContext.request.contextPath}/viewNotes">Notes</a></li>
+            
+        <% } else { %>
+            <li><a href="loginSignup.jsp">Signin/Login</a></li>
+        <% } %>
+    </ul>
+</div>

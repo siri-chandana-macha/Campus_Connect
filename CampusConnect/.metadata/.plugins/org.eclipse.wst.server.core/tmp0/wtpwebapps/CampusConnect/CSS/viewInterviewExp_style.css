@@ -1,0 +1,68 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+.addBtn {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+  margin-top: 20px;
+}
+
+.addBtn a {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #008a00;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.container {
+  width: 80%;
+  max-width: 800px;
+  background: #fff;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 15px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.profile-icon {
+  font-size: 40px;
+  margin-right: 15px;
+}
+
+.info h2 {
+  margin: 0;
+}
+
+.package {
+  text-align: right;
+  font-weight: bold;
+}
+
+.questions {
+  margin-top: 20px;
+}
+
+.questions h3 {
+  margin-bottom: 10px;
+}
+.questions ol {
+	margin-left: 15px;
+}

@@ -1,0 +1,173 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+.addBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 10px 0 10px;
+}
+
+.addBtn .section-title {
+  margin: 20px;
+  font-size: 24px;
+}
+
+
+.addBtn button {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #008a00;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+/* Container */
+.container {
+  background: #fff;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.subtext { color: #555; margin-bottom: 20px; }
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  margin: 40px 0;
+}
+.empty-state .icon { font-size: 3rem; margin-bottom: 10px; }
+.empty-state button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.empty-state button:hover { background: #0056b3; }
+
+/* Overlay */
+.overlay {
+  position: fixed; top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.3);
+  display: none;
+  z-index: 5;
+}
+
+/* Popup Form */
+.upload-form-popup {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  display: none;
+  width: 350px;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 10;
+}
+
+.upload-btn {
+  background-color: #3b82f6; /* Blue */
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.upload-btn:hover {
+  background-color: #2563eb; /* Slightly darker blue on hover */
+}
+
+.upload-form-popup label {
+  font-weight: bold;
+}
+.upload-form-popup input,
+.upload-form-popup textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.upload-form-popup button {
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.upload-form-popup button:hover { background: #0056b3; }
+
+/* Grid & Cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);;
+  gap: 30px;
+  margin-top: 30px;
+}
+.podcast-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: relative;
+  width: 90%;
+}
+.podcast-card h3 { margin: 10px 0 6px; }
+.podcast-card .menu {
+  position: absolute; top:20px; right:5px;
+  cursor: pointer; font-size: 30px;
+  z-index: 10;
+}
+.podcast-card .dropdown {
+  position: absolute; top:35px; right:10px;
+  display: none;
+  background: #fff; border:1px solid #ddd;
+  border-radius:5px; z-index:5;
+}
+.podcast-card .dropdown button {
+  background:none; border:none;
+  padding:10px; width:90%; text-align:left;
+  cursor:pointer;
+}
+.podcast-card .dropdown button:hover { background:#f1f1f1; }
+
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed; z-index:1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.6);
+}
+.modal-content {
+  background: #fff;
+  margin: 8% auto;
+  padding: 30px;
+  border-radius: 10px;
+  width: 60%; 
+  max-width:500px;
+ 
+}
+.close-btn {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}

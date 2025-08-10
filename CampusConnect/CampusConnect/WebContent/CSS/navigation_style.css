@@ -1,0 +1,79 @@
+.nav-bar{
+	height: 50px;
+	display: flex;
+	align-items: center;
+	background-color: #2D336B;
+	position: relative;
+	justify-content: space-between;
+}
+#logo-section{
+	background-color: transparent;
+}
+#logo-section a{
+	margin-left: 20px;
+	text-decoration: none;
+	color: white;
+	font-size: 25px;
+	background-color: #2D336B;
+	font-family: "Times New Roman", serif;
+}
+#menu-icon{
+	width: 30px;
+	height: 30px;
+	margin: 30px 20px 20px 0;
+	cursor: pointer;
+	background-color: transparent;
+}
+
+.bar{
+	height: 5px;
+	width: 100%;
+	background-color: white;
+	border-radius: 5px;
+	transition: 0.4s ease;
+}
+#bar1{
+	transform: translateY(-4px);
+}
+#bar3{
+	transform: translateY(4px);
+}
+.nav-links{
+	font-size: 1em;
+	display: none;
+	position: absolute;
+	top: 100%; /*works when parent is relative and child is absoulte so that it come just below the parent */
+	right: 20px;
+	background-color: #2D336B;
+    padding: 10px 15px;
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    z-index: 1000;  /*Ensure it appears above other elements even 10 or 100 works but if other element has higher than this then it will be stacked*/
+}
+.nav-links a{
+	color: white;
+	text-decoration: none;	
+	background-color: transparent;
+	
+}
+.nav-links a:hover{
+	color: lightblue;
+}
+.nav-links li{
+	padding: 10px;
+	list-style: none;
+	background-color: transparent;
+}
+.show-links{
+	display: flex;
+}
+.menu-change #bar1{
+	transform: translateY(5px) rotate(-45deg);
+}
+.menu-change #bar2{
+	opacity: 0;
+}
+.menu-change #bar3{
+	transform: translateY(-5px) rotate(45deg);
+}

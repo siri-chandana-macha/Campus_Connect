@@ -1,0 +1,5 @@
+package com.campusconnect.dao;
+
+public class EventDao {
+
+}

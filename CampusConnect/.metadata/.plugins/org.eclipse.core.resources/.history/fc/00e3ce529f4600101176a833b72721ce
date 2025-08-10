@@ -1,0 +1,5 @@
+package com.campusconnect.servlets;
+
+public class ViewEventServlet {
+
+}

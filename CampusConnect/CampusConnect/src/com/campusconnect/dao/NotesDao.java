@@ -1,0 +1,41 @@
+package com.campusconnect.dao;
+
+import com.campusconnect.connection.DbCon;
+import com.campusconnect.model.Notes;
+import java.sql.*;
+import java.util.*;
+
+public class NotesDao {
+    public boolean uploadNotes(Notes note) {
+        String query = "INSERT INTO notes (title, file_path) VALUES (?, ?)";
+        try (Connection conn = DbCon.getConnection();
+        		PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setString(1, note.getTitle());
+            ps.setString(2, note.getFilePath());
+            return ps.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public List<Notes> getAllNotes() {
+        List<Notes> list = new ArrayList<>();
+        String query = "SELECT * FROM notes ORDER BY upload_time DESC";
+        try (Connection conn = DbCon.getConnection();
+        		PreparedStatement ps = conn.prepareStatement(query);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                Notes n = new Notes();
+                n.setId(rs.getInt("id"));
+                n.setTitle(rs.getString("title"));
+                n.setFilePath(rs.getString("file_path"));
+                n.setUploadTime(rs.getString("upload_time"));
+                list.add(n);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+}

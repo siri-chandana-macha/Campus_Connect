@@ -1,0 +1,88 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.List" %>
+
+<%
+    String role = (String) session.getAttribute("role");
+    request.setAttribute("role", role);
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Notes Sharing</title>
+    <link rel="stylesheet" href="CSS/notes_style.css">
+    <link rel="stylesheet" href="CSS/navigation_style.css">
+</head>
+<body>
+
+    <%@ include file="includes/navigation.jsp" %>
+
+    <!-- Admin Upload Button -->
+    <div class="addBtn">
+        <h3 class="section-title">Notes Sharing</h3>
+            <button onclick="toggleForm()">+ Upload Notes</button>
+    </div>
+
+    <!-- Notes Grid -->
+    <div class="container">
+        <c:choose>
+            <c:when test="${empty notesList}">
+                <div class="empty-state">
+                    <div class="icon">📄</div>
+                    <p>No notes uploaded yet</p>
+                </div>
+            </c:when>
+            <c:otherwise>
+                <div class="grid">
+                    <c:forEach var="n" items="${notesList}">
+                        <div class="note-card">
+                            <embed src="${pageContext.request.contextPath}/${n.filePath}" type="application/pdf" width="100%" height="200px" />
+                            <h3>Title: ${n.title}</h3>
+                            <small>Uploaded: ${n.uploadTime}</small>
+                        </div>
+                    </c:forEach>
+                </div>
+            </c:otherwise>
+        </c:choose>
+    </div>
+
+    <!-- Upload Form (admin only) -->
+    <c:if test="${role eq 'admin'}">
+        <form id="uploadNotes" class="upload-form-popup" method="post"
+              action="${pageContext.request.contextPath}/uploadNotes"
+              enctype="multipart/form-data" style="display:none;">
+            <h3>Upload New Notes</h3>
+
+            <label>Title</label>
+            <input type="text" name="title" required>
+
+            <label>Select PDF</label>
+            <input type="file" name="file" accept="application/pdf" required>
+
+            <button type="submit">Upload</button>
+            <button type="button" onclick="toggleForm()">Cancel</button>
+        </form>
+    </c:if>
+
+    <!-- Scripts -->
+    <script>
+        function toggleForm() {
+            const form = document.getElementById("uploadNotes");
+            form.style.display = form.style.display === "block" ? "none" : "block";
+        }
+
+        // Toggle nav for mobile
+        let menu = document.querySelector("#menu-icon");
+        let navLinks = document.querySelector(".nav-links");
+        if (menu && navLinks) {
+            menu.onclick = function () {
+                navLinks.classList.toggle("show-links");
+                menu.classList.toggle("menu-change");
+            };
+        }
+    </script>
+
+</body>
+</html>

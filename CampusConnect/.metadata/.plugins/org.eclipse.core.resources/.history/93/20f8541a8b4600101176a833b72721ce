@@ -1,0 +1,132 @@
+body {
+  margin: 0; padding: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+}
+
+.upload-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 80px 20px 20px;
+}
+.upload-btn {
+  padding: 12px 24px;
+  background: #2980b9;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.container {
+  padding: 20px;
+}
+.subtext {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.note-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 300px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.note-card h3 {
+  margin: 0 0 10px;
+}
+.note-card p {
+  font-size: 0.85em;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.preview-wrapper {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.preview-wrapper canvas {
+  display: block;
+  width: 100%;
+}
+
+.note-card .actions {
+  display: flex;
+  gap: 8px;
+}
+.note-card a,
+.note-card button {
+  flex: 1;
+  text-align: center;
+  padding: 8px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9em;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+.view-btn     { background: #3498db; }
+.download-btn { background: #27ae60; }
+.delete-btn   { background: #e74c3c; }
+
+.overlay {
+  display: none;
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 10;
+}
+
+.upload-form-popup {
+  display: none;
+  position: fixed; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  width: 380px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  z-index: 11;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.upload-form-popup h3 {
+  margin: 0 0 10px;
+  text-align: center;
+}
+.upload-form-popup label {
+  font-weight: bold;
+}
+.upload-form-popup input[type="text"],
+.upload-form-popup input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+.upload-form-popup button {
+  width: 100%;
+  padding: 10px;
+  background: #2980b9;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.upload-form-popup .cancel-btn {
+  background: #777;
+}

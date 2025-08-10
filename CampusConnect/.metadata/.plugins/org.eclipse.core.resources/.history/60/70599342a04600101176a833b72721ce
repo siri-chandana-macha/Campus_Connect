@@ -1,0 +1,33 @@
+package com.campusconnect.dao;
+
+import com.campusconnect.connection.DbCon;
+import com.campusconnect.model.Event;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class EventDao {
+    public List<Event> getAllEvents() {
+        List<Event> events = new ArrayList<>();
+        try (Connection conn = DbCon.getConnection();
+        		PreparedStatement ps = conn.prepareStatement(query)){
+            String query = "SELECT * FROM events ORDER BY date DESC";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Event event = new Event();
+                event.setId(rs.getInt("id"));
+                event.setTitle(rs.getString("title"));
+                event.setOrganizer(rs.getString("organizer"));
+                event.setDate(rs.getString("date"));
+                event.setTime(rs.getString("time"));
+                event.setVenue(rs.getString("venue"));
+                event.setDescription(rs.getString("description"));
+                events.add(event);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return events;
+    }
+}
